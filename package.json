@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-	"autofix": "pnpm eslint --fix \"./**/*.{js,jsx,ts,tsx*}\""
+    "autofix": "pnpm eslint --fix \"./**/*.{js,jsx,ts,tsx*}\""
   },
   "dependencies": {
     "@types/node": "20.2.6",
@@ -16,6 +16,7 @@
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
+    "next-auth": "^4.22.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "5.1.3"
