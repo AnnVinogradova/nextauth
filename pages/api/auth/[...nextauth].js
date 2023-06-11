@@ -3,12 +3,14 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions = {
 	providers: [
+		// eslint-disable-next-line new-cap
 		CredentialsProvider({
 			name: 'Credentials',
 			credentials: {
 				username: { label: 'Username', type: 'text', placeholder: 'jsmith' },
 				password: { label: 'Password', type: 'password' }
 			},
+			// eslint-disable-next-line no-unused-vars
 			async authorize(credentials, req) {
 				console.log('credentials', credentials);
 
