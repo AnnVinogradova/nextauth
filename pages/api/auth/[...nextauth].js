@@ -1,9 +1,20 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
+import GitHubProvider from "next-auth/providers/github";
+import VkProvider from "next-auth/providers/vk";
 
 export const authOptions = {
 	providers: [
-		// eslint-disable-next-line new-cap
+		GitHubProvider({
+			clientId: process.env.GITHUB_ID,
+			clientSecret: process.env.GITHUB_SECRET
+		}),
+
+		VkProvider({
+			clientId: process.env.VK_CLIENT_ID,
+			clientSecret: process.env.VK_CLIENT_SECRET
+		}),
+
 		CredentialsProvider({
 			name: 'Credentials',
 			credentials: {
@@ -11,7 +22,7 @@ export const authOptions = {
 				password: { label: 'Password', type: 'password' }
 			},
 			// eslint-disable-next-line no-unused-vars
-			async authorize(credentials, req) {
+			async authorize(credentials) {
 				console.log('credentials', credentials);
 
 
@@ -20,6 +31,7 @@ export const authOptions = {
 				return null;
 			}
 		})
+
 	],
 };
 
