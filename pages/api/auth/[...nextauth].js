@@ -18,7 +18,7 @@ export const authOptions = {
 		SpotifyProvider({
 			clientId: process.env.SPOTIFY_CLIENT_ID,
 			clientSecret: process.env.SPOTIFY_CLIENT_SECRET
-		  }),
+		}),
 
 		VkProvider({
 			clientId: process.env.VK_CLIENT_ID,
