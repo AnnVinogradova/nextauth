@@ -7,7 +7,7 @@ export default function Home() {
 		console.log('session=', session);
 		return <>
 			Signed in as {session.user?.email} <br />
-			{session?.user?.image && <img src={session?.user?.image} alt='avatar'></img>}
+			{session?.user?.image && <img src={session?.user?.image} alt='avatar' width={50} height={50}></img>}
 			{session?.user?.name}
 			<hr></hr>
 			<button onClick={() => signOut()}>Sign out</button>
