@@ -2,14 +2,26 @@ import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GitHubProvider from "next-auth/providers/github";
 import VkProvider from "next-auth/providers/vk";
+import GoogleProvider from "next-auth/providers/google";
+import SpotifyProvider from "next-auth/providers/spotify";
+
 
 import { PrismaAdapter } from "@auth/prisma-adapter";
 import { PrismaClient } from "@prisma/client";
+
 
 const prisma = new PrismaClient();
 export const authOptions = {
 	adapter: PrismaAdapter(prisma),
 	providers: [
+		GoogleProvider({
+			clientId: process.env.GOOGLE_CLIENT_ID,
+			clientSecret: process.env.GOOGLE_CLIENT_SECRET
+		  }),
+		SpotifyProvider({
+			clientId: process.env.SPOTIFY_CLIENT_ID,
+			clientSecret: process.env.SPOTIFY_CLIENT_SECRET
+		  }),
 		GitHubProvider({
 			clientId: process.env.GITHUB_ID,
 			clientSecret: process.env.GITHUB_SECRET
